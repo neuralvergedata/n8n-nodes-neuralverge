@@ -1,0 +1,66 @@
+{
+	"name": "n8n-nodes-neuralverge",
+	"version": "0.1.0",
+	"description": "n8n community node for NeuralVerge: company and person business intelligence (reverse email and phone lookup, email finder and verification, company funding, LinkedIn and Amazon data, web search, AI extraction and research).",
+	"license": "MIT",
+	"homepage": "https://github.com/neuralvergedata/n8n-nodes-neuralverge#readme",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"neuralverge",
+		"enrichment",
+		"email-finder",
+		"email-verification",
+		"reverse-phone-lookup",
+		"linkedin",
+		"crunchbase",
+		"amazon",
+		"ai-research",
+		"web-scraping"
+	],
+	"author": {
+		"name": "NeuralVerge Inc.",
+		"email": "dmitry@neuralverge.ai",
+		"url": "https://neuralverge.ai"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/neuralvergedata/n8n-nodes-neuralverge.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease",
+		"test": "node --test test/*.test.js"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/NeuralVergeApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/NeuralVerge/NeuralVerge.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "^0.48.5",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"bugs": {
+		"url": "https://github.com/neuralvergedata/n8n-nodes-neuralverge/issues"
+	}
+}

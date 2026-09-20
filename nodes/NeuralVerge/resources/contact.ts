@@ -1,0 +1,133 @@
+import type { INodeProperties } from 'n8n-workflow';
+
+export const contactDescription: INodeProperties[] = [
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { resource: ['contact'] } },
+		options: [
+			{
+				name: 'Find Email by Name',
+				value: 'findEmail',
+				action: 'Find email by name',
+				description: 'Find and verify a work email from first name, last name and company domain',
+				routing: {
+					request: { method: 'POST', url: '/run-email-finder' },
+				},
+			},
+			{
+				name: 'Find Person by Email',
+				value: 'findPersonByEmail',
+				action: 'Find person by email',
+				description:
+					'Reverse email lookup: name, phones, location, company, position and social profiles',
+				routing: {
+					request: { method: 'POST', url: '/run-email-enrichment' },
+				},
+			},
+			{
+				name: 'Find Person by Phone',
+				value: 'findPersonByPhone',
+				action: 'Find person by phone',
+				description:
+					'Reverse phone lookup (global): name, emails, location, company and social profiles',
+				routing: {
+					request: { method: 'POST', url: '/run-phone-enrichment' },
+				},
+			},
+			{
+				name: 'Find Person by US Phone',
+				value: 'findPersonByUsPhone',
+				action: 'Find person by US phone',
+				description: 'US reverse phone lookup with carrier, line type and validity signals',
+				routing: {
+					request: { method: 'POST', url: '/run-phone-enrichment-us' },
+				},
+			},
+			{
+				name: 'Verify Email',
+				value: 'verifyEmail',
+				action: 'Verify email',
+				description: 'Check whether an email address is deliverable (valid, risky or invalid)',
+				routing: {
+					request: { method: 'POST', url: '/run-email-validation' },
+				},
+			},
+		],
+		default: 'findEmail',
+	},
+	{
+		displayName: 'Email',
+		name: 'email',
+		type: 'string',
+		placeholder: 'jane.doe@example.com',
+		default: '',
+		required: true,
+		description: 'Email address to look up, for example jane.doe@example.com',
+		displayOptions: { show: { resource: ['contact'], operation: ['findPersonByEmail'] } },
+		routing: { send: { type: 'body', property: 'email' } },
+	},
+	{
+		displayName: 'Email',
+		name: 'email',
+		type: 'string',
+		placeholder: 'jane.doe@example.com',
+		default: '',
+		required: true,
+		description: 'Email address to verify, for example jane.doe@example.com',
+		displayOptions: { show: { resource: ['contact'], operation: ['verifyEmail'] } },
+		routing: { send: { type: 'body', property: 'email' } },
+	},
+	{
+		displayName: 'First Name',
+		name: 'firstName',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'First name, for example Jane',
+		displayOptions: { show: { resource: ['contact'], operation: ['findEmail'] } },
+		routing: { send: { type: 'body', property: 'first_name' } },
+	},
+	{
+		displayName: 'Last Name',
+		name: 'lastName',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Last name, for example Doe',
+		displayOptions: { show: { resource: ['contact'], operation: ['findEmail'] } },
+		routing: { send: { type: 'body', property: 'last_name' } },
+	},
+	{
+		displayName: 'Company Domain',
+		name: 'domain',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Company website domain, for example example.com',
+		displayOptions: { show: { resource: ['contact'], operation: ['findEmail'] } },
+		routing: { send: { type: 'body', property: 'domain' } },
+	},
+	{
+		displayName: 'Phone Number',
+		name: 'phone',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Phone number in international format, for example +15555550100',
+		displayOptions: { show: { resource: ['contact'], operation: ['findPersonByPhone'] } },
+		routing: { send: { type: 'body', property: 'phone' } },
+	},
+	{
+		displayName: 'US Phone Number',
+		name: 'phone',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'US phone number with country code, digits only, for example 15555550100',
+		displayOptions: { show: { resource: ['contact'], operation: ['findPersonByUsPhone'] } },
+		routing: { send: { type: 'body', property: 'phone' } },
+	},
+];

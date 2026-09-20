@@ -1,0 +1,243 @@
+{
+	"run-research": {
+		"method": "POST",
+		"required": [
+			"instructions",
+			"settings"
+		],
+		"properties": [
+			"instructions",
+			"settings.country_code",
+			"settings.search_enabled",
+			"settings.deepsearch_model",
+			"settings.finalizer_model",
+			"settings.extract_schema_json"
+		]
+	},
+	"get-session-status": {
+		"method": "GET",
+		"query": [
+			"session_id"
+		]
+	},
+	"run-search": {
+		"method": "POST",
+		"required": [
+			"query",
+			"settings"
+		],
+		"properties": [
+			"query",
+			"settings.country",
+			"settings.language",
+			"settings.max_results"
+		]
+	},
+	"run-extract": {
+		"method": "POST",
+		"required": [
+			"url",
+			"instructions",
+			"settings"
+		],
+		"properties": [
+			"url",
+			"instructions",
+			"settings.country_code",
+			"settings.extract_schema_json"
+		]
+	},
+	"run-linkedin-email": {
+		"method": "POST",
+		"required": [
+			"username"
+		],
+		"properties": [
+			"username",
+			"includeEmail"
+		]
+	},
+	"run-linkedin-domain": {
+		"method": "POST",
+		"required": [
+			"company_or_domain",
+			"full_name"
+		],
+		"properties": [
+			"company_or_domain",
+			"full_name"
+		]
+	},
+	"run-linkedin-company-search": {
+		"method": "POST",
+		"required": [
+			"searchQuery"
+		],
+		"properties": [
+			"searchQuery",
+			"companySize",
+			"industryIds",
+			"locations",
+			"maxItems",
+			"scraperMode",
+			"startPage"
+		]
+	},
+	"run-linkedin-people-search": {
+		"method": "POST",
+		"required": [],
+		"properties": [
+			"searchQuery",
+			"maxResults",
+			"startPage",
+			"scraperMode",
+			"locations",
+			"currentCompany",
+			"pastCompany",
+			"currentJobTitleFilter",
+			"pastJobTitle",
+			"yearsOfExperienceFilter",
+			"yearsAtCurrentCompanyFilter",
+			"seniorityLevelFilter",
+			"functionFilter",
+			"industryIds",
+			"firstNames",
+			"lastNames",
+			"companyHeadcountFilter"
+		]
+	},
+	"run-linkedin-company-employee": {
+		"method": "POST",
+		"required": [
+			"companies"
+		],
+		"properties": [
+			"companies",
+			"searchQuery",
+			"maxResults",
+			"startPage",
+			"scraperMode",
+			"locations",
+			"currentJobTitleFilter",
+			"pastJobTitle",
+			"yearsOfExperienceFilter",
+			"yearsAtCurrentCompanyFilter",
+			"seniorityLevelFilter",
+			"functionFilter",
+			"industryIds",
+			"companyHeadcountFilter"
+		]
+	},
+	"run-email-enrichment": {
+		"method": "POST",
+		"required": [
+			"email"
+		],
+		"properties": [
+			"email"
+		]
+	},
+	"run-email-validation": {
+		"method": "POST",
+		"required": [
+			"email"
+		],
+		"properties": [
+			"email"
+		]
+	},
+	"run-email-finder": {
+		"method": "POST",
+		"required": [
+			"domain",
+			"first_name",
+			"last_name"
+		],
+		"properties": [
+			"domain",
+			"first_name",
+			"last_name"
+		]
+	},
+	"run-phone-enrichment": {
+		"method": "POST",
+		"required": [
+			"phone"
+		],
+		"properties": [
+			"phone"
+		]
+	},
+	"run-phone-enrichment-us": {
+		"method": "POST",
+		"required": [
+			"phone"
+		],
+		"properties": [
+			"phone"
+		]
+	},
+	"run-crunchbase-company": {
+		"method": "POST",
+		"required": [
+			"url"
+		],
+		"properties": [
+			"url"
+		]
+	},
+	"run-amazon-product-search": {
+		"method": "POST",
+		"required": [
+			"query"
+		],
+		"properties": [
+			"query",
+			"max_items",
+			"start_page",
+			"domain"
+		]
+	},
+	"run-amazon-product": {
+		"method": "POST",
+		"required": [
+			"asin"
+		],
+		"properties": [
+			"asin",
+			"domain"
+		]
+	},
+	"run-amazon-product-offers": {
+		"method": "POST",
+		"required": [
+			"asin"
+		],
+		"properties": [
+			"asin",
+			"domain"
+		]
+	},
+	"run-amazon-seller": {
+		"method": "POST",
+		"required": [
+			"seller"
+		],
+		"properties": [
+			"seller",
+			"domain"
+		]
+	},
+	"run-amazon-seller-products": {
+		"method": "POST",
+		"required": [
+			"seller"
+		],
+		"properties": [
+			"seller",
+			"max_items",
+			"start_page",
+			"domain"
+		]
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"node": "n8n-nodes-neuralverge.neuralVerge",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Sales", "Marketing", "Data & Storage"],
+	"alias": [
+		"enrichment",
+		"email finder",
+		"email verification",
+		"reverse phone lookup",
+		"LinkedIn",
+		"Crunchbase",
+		"Amazon",
+		"web search",
+		"scraper",
+		"research"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/neuralvergedata/n8n-nodes-neuralverge?tab=readme-ov-file#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.neuralverge.ai"
+			},
+			{
+				"url": "https://github.com/neuralvergedata/n8n-nodes-neuralverge?tab=readme-ov-file"
+			}
+		]
+	}
+}
